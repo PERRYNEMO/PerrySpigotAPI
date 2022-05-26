@@ -1,0 +1,5 @@
+name: PerrySpigotAPI
+version: '${project.version}'
+main: net.perrynemo.psapi.perryspigotapi.PerrySpigotAPI
+api-version: 1.18
+authors: [ PERRYNEMO ]
