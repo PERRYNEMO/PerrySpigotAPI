@@ -1,3 +1,3 @@
 # PerrySpigotAPI
 
-UseFUll API for spigot developpement
+UseFull API for spigot developpement
