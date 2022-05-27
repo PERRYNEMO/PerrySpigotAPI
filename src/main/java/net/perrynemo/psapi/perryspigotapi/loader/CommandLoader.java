@@ -45,4 +45,7 @@ public class CommandLoader extends PerryLoader{
         if(instance == null) instance = new CommandLoader(main);
         return instance;
     }
+    public void addCommand(Class<? extends Command> clazz) {
+        commands.add(clazz);
+    }
 }
