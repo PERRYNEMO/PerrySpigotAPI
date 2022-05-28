@@ -1,5 +1,6 @@
 package net.perrynemo.psapi.perryspigotapi.loader;
 
+import net.perrynemo.psapi.perryspigotapi.Event.MenuListener;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,6 +17,7 @@ public class EventLoader extends PerryLoader{
     protected EventLoader(JavaPlugin main) {
         super(main);
         classes = new ArrayList<>();
+        addClass(MenuListener.class);
     }
 
     @Override
