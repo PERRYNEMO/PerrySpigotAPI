@@ -1,11 +1,11 @@
 package net.perrynemo.psapi.perryspigotapi.loader;
 
 import net.perrynemo.psapi.perryspigotapi.Command.Command;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.logging.Level;
 
 public class CommandLoader extends PerryLoader{
@@ -33,7 +33,10 @@ public class CommandLoader extends PerryLoader{
         commands.forEach(clazz -> {
             try {
                 Command command = clazz.getConstructor(JavaPlugin.class).newInstance(main);
-                Objects.requireNonNull(main.getCommand(command.getCommandInfo().name())).setExecutor(command);
+                final PluginCommand pluginCommand = main.getCommand(command.getCommandInfo().name());
+                assert pluginCommand != null;
+                pluginCommand.setExecutor(command);
+                pluginCommand.setTabCompleter(command);
                 logger.log(Level.INFO, "generate command : "+ command.getCommandInfo().name());
             } catch (Exception e) {
                 e.printStackTrace();
