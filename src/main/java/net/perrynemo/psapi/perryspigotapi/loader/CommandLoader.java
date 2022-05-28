@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 
 public class CommandLoader extends PerryLoader{
@@ -32,7 +33,7 @@ public class CommandLoader extends PerryLoader{
         commands.forEach(clazz -> {
             try {
                 Command command = clazz.getConstructor(JavaPlugin.class).newInstance(main);
-                main.getCommand(command.getCommandInfo().name()).setExecutor(command);
+                Objects.requireNonNull(main.getCommand(command.getCommandInfo().name())).setExecutor(command);
                 logger.log(Level.INFO, "generate command : "+ command.getCommandInfo().name());
             } catch (Exception e) {
                 e.printStackTrace();
