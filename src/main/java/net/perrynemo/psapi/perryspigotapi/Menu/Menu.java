@@ -37,4 +37,9 @@ public abstract class Menu implements InventoryHolder {
         itemStack.setItemMeta(itemMeta);
         return itemStack;
     }
+
+    @Override
+    public Inventory getInventory() {
+        return inventory;
+    }
 }
