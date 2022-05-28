@@ -31,7 +31,7 @@ public class CommandLoader extends PerryLoader{
     protected void generateResponce() {
         commands.forEach(clazz -> {
             try {
-                Command command = clazz.getConstructor(main.getClass()).newInstance(main);
+                Command command = clazz.getConstructor(JavaPlugin.class).newInstance(main);
                 main.getCommand(command.getCommandInfo().name()).setExecutor(command);
                 logger.log(Level.INFO, "generate command : "+ command.getCommandInfo().name());
             } catch (Exception e) {
