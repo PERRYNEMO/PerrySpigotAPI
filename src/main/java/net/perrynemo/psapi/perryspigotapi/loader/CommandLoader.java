@@ -11,10 +11,11 @@ import java.util.logging.Level;
 public class CommandLoader extends PerryLoader{
 
     private static CommandLoader instance;
-    private List<Class<? extends Command>> commands= new ArrayList<>();
+    private final List<Class<? extends Command>> commands;
 
     private CommandLoader(JavaPlugin main) {
         super(main);
+        commands = new ArrayList<>();
     }
 
     @Override
