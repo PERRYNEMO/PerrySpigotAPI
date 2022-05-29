@@ -9,6 +9,14 @@ public abstract class PaginedMenu extends Menu{
     protected int maxitem = 45;
     protected int index = 0;
 
+
+    protected PaginedMenu(PaginedMenu menu) {
+        super(menu);
+        this.page = menu.page;
+        this.maxitem = menu.maxitem;
+        this.index = menu.index;
+    }
+
     @Override
     public void setMenuItems() {
         addMenu();

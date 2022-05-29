@@ -15,6 +15,11 @@ public abstract class Menu implements InventoryHolder {
     protected Inventory inventory;
     protected int slot;
 
+    protected Menu(Menu menu) {
+        this.inventory = menu.inventory;
+        this.slot = menu.slot;
+    }
+
     public void open(String playerName) {
         slot = getSlots();
         inventory = Bukkit.createInventory(this, slot, getMenuName());
@@ -28,6 +33,7 @@ public abstract class Menu implements InventoryHolder {
     public abstract int getSlots();
     public abstract  void ClickonMenu(InventoryClickEvent e);
     public abstract  void setMenuItems();
+    public abstract Menu clone();
 
     public ItemStack getItemStack(Material material, String name, int number){
         ItemStack itemStack = new ItemStack(material,number);
